@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'eshop';
+  keyword;
+  loggedIn = localStorage.getItem("access_token")?true:false;
+
+
+  logout():any {
+
+    localStorage.removeItem("access_token");
+    window.location.reload();
+  }
 }
+
+

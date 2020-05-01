@@ -1,0 +1,23 @@
+<body>
+    <div id="logreg-forms">
+        <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Login</h1>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required formControlName="email">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required formControlName="password">
+            
+
+            <button [disabled]="loading" class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i><span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Login</button>
+            <a href="#" id="forgot_pswd">Forgot password?</a>
+            <hr>
+           
+            <button class="btn btn-primary btn-block" type="button" id="btn-signup" routerLink="/register"><i class="fas fa-user-plus"></i> Sign up New Account</button>
+            </form>
+
+            <form action="/reset/password/" class="form-reset">
+                <input type="email" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                <button class="btn btn-primary btn-block" type="submit">Reset Password</button>
+                <a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i> Back</a>
+            </form>
+    </div>
+
+</body>

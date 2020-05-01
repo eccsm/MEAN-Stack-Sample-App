@@ -1,0 +1,24 @@
+
+
+  <div class="input-group mb-3">
+    <input id="cName" type="text" class="form-control" placeholder="Add Category.." aria-label="Add Category" aria-describedby="button-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="addCategory()">Submit</button>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of category; let i = index">
+        <td>{{c.name}}</td>
+        <td><a (click)="removeCategory(c, i)">Delete</a></td>
+        <td><a (click)="updateCategory(c)">Update</a></td>
+      </tr>
+    </tbody>
+  </table>

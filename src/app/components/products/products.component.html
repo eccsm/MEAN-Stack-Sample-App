@@ -1,0 +1,16 @@
+<div class="md-form mt-0">
+  <input class="form-control" type="text" placeholder="Search" aria-label="Search" [(ngModel)] ="keyword">
+</div>
+<div class="container">
+  <!-- No data message -->
+  <p *ngIf="product.length <= 0" class="no-data text-center">There is no product added yet!</p>
+</div>
+<div class="row">
+    <div *ngFor="let product of product | productSearch:keyword" class="card" style="width: 18rem;">
+      <a [routerLink]="['/productDetail/', product._id]"><img [src]="product.imageUrl" class="card-img-top" alt="productImage"></a>
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}-{{product.price | currency}}</h5>
+        <p class="card-text">{{product.description}}</p>
+      </div>
+    </div>
+  </div>   
