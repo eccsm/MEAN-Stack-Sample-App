@@ -55,12 +55,12 @@ User.methods.generateJWT = function () {
 
     const payload = {
         id: this.id,
-        name: this.name
+        name: this.name,
+        expiresIn: Date.now() + 600000
     }
 
-    const jwtkn = jwt.sign(payload, "yırtıcıhamza", { expiresIn: "10m" });
+    const token = jwt.sign(payload, "yırtıcıhamza", { expiresIn: "10m" });
 
-    const token = jwtkn + "yırtıcı" +new Date(Date.now() + 300000);
 
     return token;
 

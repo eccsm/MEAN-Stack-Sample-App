@@ -22,13 +22,12 @@ export class AuthGuard implements CanActivate {
 
     let authStr = localStorage.getItem("access_token");
 
-    let arr = authStr.split("yırtıcı");
-
-    let expireT = Date.parse(arr[1]);
+    const tokenContent = this.authService.getDecoded();
 
      if (authStr) {
 
-       if (expireT<Date.now()) {
+
+       if (tokenContent.data.expiresIn <Date.now()) {
 
          alertify.error("Your session was ended you need to login!");
          this.router.navigate(['/login'])

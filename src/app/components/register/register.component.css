@@ -20,12 +20,12 @@
     margin-top: 20px;
 }
 #logreg-forms .form-control:focus { z-index: 2; }
-#logreg-forms .form-signin input[type="email"] {
+#logreg-forms .form-register input[type="email"] {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
-#logreg-forms .form-signin input[type="password"] {
+#logreg-forms .form-register input[type="password"] {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }

@@ -12,6 +12,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from '../app/interceptor/auth.interceptor';
+import { JwtModule } from "@auth0/angular-jwt";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,12 @@ import { AuthInterceptor } from '../app/interceptor/auth.interceptor';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ["localhost:4000","localhost:4200"]
+      }
+    })
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
@@ -39,3 +46,6 @@ import { AuthInterceptor } from '../app/interceptor/auth.interceptor';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
